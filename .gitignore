@@ -3,8 +3,6 @@
 # Build results
 [Dd]ebug/
 [Rr]elease/
-[Oo]bj/
-[Bb]in/
 
 # IDE's specific files
 .vs/
