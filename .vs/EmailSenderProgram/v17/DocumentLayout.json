@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Projects\\EmailSenderProgram\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|d:\\projects\\emailsenderprogram\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|d:\\projects\\emailsenderprogram\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|solutionrelative:services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|d:\\projects\\emailsenderprogram\\mail\\comebackmailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|d:\\projects\\emailsenderprogram\\mail\\welcomemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|solutionrelative:mail\\welcomemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|D:\\Projects\\EmailSenderProgram\\mail\\comebackmailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|solutionrelative:mail\\comebackmailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|d:\\projects\\emailsenderprogram\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB404AD4-4B82-44A9-9F2C-4F9C0910D54A}|EmailSenderProgram.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MailService.cs",
+              "DocumentMoniker": "D:\\Projects\\EmailSenderProgram\\Services\\MailService.cs",
+              "RelativeDocumentMoniker": "Services\\MailService.cs",
+              "ToolTip": "D:\\Projects\\EmailSenderProgram\\Services\\MailService.cs",
+              "RelativeToolTip": "Services\\MailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T02:02:25.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "WelcomeMailSender.cs",
+              "DocumentMoniker": "D:\\Projects\\EmailSenderProgram\\Mail\\WelcomeMailSender.cs",
+              "RelativeDocumentMoniker": "Mail\\WelcomeMailSender.cs",
+              "ToolTip": "D:\\Projects\\EmailSenderProgram\\Mail\\WelcomeMailSender.cs",
+              "RelativeToolTip": "Mail\\WelcomeMailSender.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAYwCIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T01:58:45.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ComebackMailSender.cs",
               "DocumentMoniker": "D:\\Projects\\EmailSenderProgram\\Mail\\ComebackMailSender.cs",
               "RelativeDocumentMoniker": "Mail\\ComebackMailSender.cs",
               "ToolTip": "D:\\Projects\\EmailSenderProgram\\Mail\\ComebackMailSender.cs",
               "RelativeToolTip": "Mail\\ComebackMailSender.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCwAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-16T01:41:48.79Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projects\\EmailSenderProgram\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Projects\\EmailSenderProgram\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAkwE0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-16T00:14:41.688Z",
               "EditorCaption": ""

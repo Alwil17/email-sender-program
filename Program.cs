@@ -44,35 +44,6 @@ namespace EmailSenderProgram
             }
 
             Console.ReadKey();
-			/*
-            //Call the method that do the work for me, I.E. sending the mails
-            Console.WriteLine("Send Welcomemail");
-			bool success = DoEmailWork();
-
-#if DEBUG
-			//Debug mode, always send Comeback mail
-			Console.WriteLine("Send Comebackmail");
-			success = DoEmailWork2("EOComebackToUs");
-#else
-			//Every Sunday run Comeback mail
-			if (DateTime.Now.DayOfWeek.Equals(DayOfWeek.Monday))
-			{
-				Console.WriteLine("Send Comebackmail");
-				success = DoEmailWork2("EOComebackToUs");
-			}
-#endif
-
-			//Check if the sending went OK
-			if (success == true)
-			{
-				Console.WriteLine("All mails are sent, I hope...");
-			}
-			//Check if the sending was not going well...
-			if (success == false)
-			{
-				Console.WriteLine("Oops, something went wrong when sending mail (I think...)");
-			}
-			Console.ReadKey();*/
 		}
 	}
 }
