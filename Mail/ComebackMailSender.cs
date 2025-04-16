@@ -7,13 +7,21 @@ using System.Threading.Tasks;
 
 namespace EmailSenderProgram.Mail
 {
-    /// <summary>
-    /// Welcome Mail Sender logic.
-    /// </summary>
-    public class WelcomeMailSender : IMailSender
+    public class ComebackMailSender : IMailSender
     {
+        // Add vourcher code, to invite customer for coming again.
+        private readonly string _voucherCode;
+
         // Here is the Name of the Mail type
-        public string Name => "Welcome Mail";
+        public string Name => "Comeback Mail";
+
+        /// <summary>
+		/// Constructor of ComebackMailSender
+		/// </summary>
+        public ComebackMailSender(string voucherCode)
+        {
+            _voucherCode = voucherCode;
+        }
 
         /// <summary>
 		/// Send Welcome mail
@@ -25,24 +33,28 @@ namespace EmailSenderProgram.Mail
             {
                 //List all customers
                 var customers = DataLayer.ListCustomers();
-                // Get directly new Customers to reduce complexity of loop and number of exceutions.
-                var newCustomers = customers
-                    .Where(c => c.CreatedDateTime > DateTime.Now.AddDays(-1))
+                // List all orders
+                var orders = DataLayer.ListOrders();
+                // Get directly Customers without orders to reduce complexity of loop and number of exceutions.
+                var customersWithoutOrders = customers
+                    .Where(c => !orders.Any(o => o.CustomerEmail == c.Email))
                     .ToList();
 
-                //loop through list of new customers
-                foreach (var customer in newCustomers)
+                //loop through list of Customers without orders
+                foreach (var customer in customersWithoutOrders)
                 {
 #if DEBUG
                     //Don't send mails in debug mode, just write the emails in console
-                    Console.WriteLine($"[DEBUG] Would send welcome email to: {customer.Email}");
+                    Console.WriteLine($"[DEBUG] Would send comeback email to: {customer.Email}");
 #else
                     // Created MailMessage with all mail components
                     var mail = new MailMessage
                     {
                         From = new MailAddress("info@EO.com"),
-                        Subject = "Welcome as a new customer at EO!",
-                        Body = $"Hi {customer.Email} <br>We would like to welcome you as customer on our site!<br><br>Best Regards,<br>EO Team",
+                        Subject = "We miss you as a customer",
+                        Body = $@"Hi {customer.Email} br>We miss you as a customer. Our shop is filled with nice products. Here is a voucher that gives you 50 kr to shop for. 
+						         <br>Voucher: {_voucherCode}
+						         <br><br>Best Regards,<br>EO Team",
                         IsBodyHtml = true
                     };
 
@@ -65,4 +77,5 @@ namespace EmailSenderProgram.Mail
             }
         }
     }
+}
 }
