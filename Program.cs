@@ -13,6 +13,7 @@ namespace EmailSenderProgram
 		/// <param name="args"></param>
 		private static void Main(string[] args)
 		{
+			// TODO: Add log4net or another package for better logging and file supporting.
 			// Since mails are now scheduled, moved all logic to Scheduler.
             Console.WriteLine("== Email Sender Program ==");
 			// Run Scheduler
