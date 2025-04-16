@@ -1,9 +1,9 @@
 ## Ignore visual studi temporary files, build results, etc.
 
 # Build results
-[Dd]ebug/
-[Rr]elease/
-[Oo]bj/
+#[Dd]ebug/
+#[Rr]elease/
+#[Oo]bj/
 [Bb]in/
 
 # IDE's specific files
