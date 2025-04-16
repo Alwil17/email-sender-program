@@ -1,0 +1,38 @@
+Task 2 - Theoretical task :
+
+# How I Would Design the System from Scratch
+If I were to build a similar mail-sending system from scratch, I would aim for modularity, testability, and scalability. Here's how I would approach the architecture:
+
+## Architecture Overview
+1. Layered Architecture
+- Presentation Layer (CLI / Scheduler): For triggering the excecution (e.g., daily job, cron, or Windows Task Scheduler).
+- Application Layer (Mail Orchestrator / Scheduler): Coordinates the logic: which emails to send, when, and to whom based on DataLayer.
+- Domain Layer (Mail Senders, Mail Rules): Contains the logic for each type of email (e.g., WelcomeMail, ComebackMail). Easy to extend by adding new types.
+- Infrastructure layer handles external operations like:
+  * Sending real emails (SMTP)
+  * Logging (e.g., log4net or Serilog)
+  * Reading configurations
+- Data Access Layer Provides customer and order data (in real projects, from a database or API), since actual database is not dynamic.
+
+## Principles & patterns I will use
+- Interface-based programming: For each mail type, I will implement a common interface like IMailSender. This makes it easy to add new mail types without touching existing code.
+- Dependency Injection: For decoupling components like mail senders, configuration readers, loggers, etc.
+- Strategy pattern: Each email type is a strategy. So i can plug in or swap mail senders without modifying orchestration logic.
+- Configuration via App.config or environment variables: For SMTP settings, debug mode, voucher codes, etc.
+- Logging: Needed for structured logging for better diagnostics and debugging.
+
+## Testing
+- Unit tests for each mail sender
+- Mock the SMTP service and Data Layer
+Additionnaly, I can make integration tests with a fake SMTP server like Papercut
+
+## DevOps & CI/CD
+As implemented in current Logic, I will also use GitHub Actions for:
+- Building and testing the app on push
+- Publishing builds or deploying to a job scheduler/cloud runner
+
+## For extensibility, I will:
+- Add support for scheduling via cron expressions or Windows Task scheduler
+- Add templating engine (e.g., RazorLight) for better email formatting
+- Store sent mail logs for tracking delivery
+- Check if a mail type is already sent, just to avoid sending again in another execution.
