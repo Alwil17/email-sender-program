@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using EmailSenderProgram.Services;
 
 namespace EmailSenderProgram.Mail
 {
@@ -13,13 +14,12 @@ namespace EmailSenderProgram.Mail
         private readonly string _voucherCode;
 
         // Here is the Name of the Mail type
-        public string Name => "Comeback Mail";
+        public string Name => "ComebackMail";
 
         /// <summary>
-		/// Constructor of ComebackMailSender
-		/// </summary>
-        /// <param name="voucherCode"></param>
-		/// <returns></returns>
+        /// Constructor of ComebackMailSender
+        /// </summary>
+        /// <param name="voucherCode">Voucher code used in email body</param>
         public ComebackMailSender(string voucherCode)
         {
             _voucherCode = voucherCode;
@@ -43,31 +43,15 @@ namespace EmailSenderProgram.Mail
                     .ToList();
 
                 //loop through list of Customers without orders
-                foreach (var customer in customersWithoutOrders)
-                {
-#if DEBUG
-                    //Don't send mails in debug mode, just write the emails in console
-                    Console.WriteLine($"[DEBUG] Would send comeback email to: {customer.Email}");
-#else
-                    // Created MailMessage with all mail components
-                    var mail = new MailMessage
-                    {
-                        From = new MailAddress("info@EO.com"),
-                        Subject = "We miss you as a customer",
-                        Body = $@"Hi {customer.Email} br>We miss you as a customer. Our shop is filled with nice products. Here is a voucher that gives you 50 kr to shop for. 
-						         <br>Voucher: {_voucherCode}
-						         <br><br>Best Regards,<br>EO Team",
-                        IsBodyHtml = true
-                    };
+                // call MailService to sendEmail
+                customersWithoutOrders.ForEach(customer => MailService.SendEmail(
+                        customer.Email,
+                        "We miss you as a customer",
+                        $@"Hi {customer.Email} <br>We miss you as a customer. Our shop is filled with nice products. Here is a voucher that gives you 50 kr to shop for. 
+						    <br>Voucher: {_voucherCode}
+						    <br><br>Best Regards,<br>EO Team"
+                ));
 
-                    // Add customer as recipient
-                    mail.To.Add(customer.Email);
-                    // Create new smtp client
-                    var smtp = new SmtpClient("SMTP_HOST");
-                    // send mail
-                    smtp.Send(mail);
-#endif
-                }
                 //All mails are sent! Success!
                 return true;
             }
