@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EmailSenderProgram.Config;
 using EmailSenderProgram.Mail;
 
 namespace EmailSenderProgram.Scheduler
 {
-    public static class Scheduler
+    public static class EmailScheduler
     {
         public static void Run()
         {
@@ -17,18 +18,22 @@ namespace EmailSenderProgram.Scheduler
             // Always send welcome mail
             senders.Add(new WelcomeMailSender());
 
-#if DEBUG
-            // Debug mode, always send Comeback mail
-            Console.WriteLine("[DEBUG] Sending Comeback Mail (forced)");
-            senders.Add(new ComebackMailSender("EOComebackToUs"));
-#else
-            // In production, send comeback mail only on Sunday according to Comments in old Program.cs
-            if (DateTime.Now.DayOfWeek.Equals(DayOfWeek.Sunday))
+            if (ConfigResolver.IsDebug())
             {
-                Console.WriteLine("Today is Sunday - Sending Comeback Mail");
+                // Debug mode, always send Comeback mail
+                Console.WriteLine("[DEBUG] Sending Comeback Mail (forced)");
                 senders.Add(new ComebackMailSender("EOComebackToUs"));
             }
-#endif
+            else
+            {
+                // In production, send comeback mail only on Sunday according to Comments in old Program.cs
+                if (DateTime.Now.DayOfWeek.Equals(DayOfWeek.Sunday))
+                {
+                    Console.WriteLine("Today is Sunday - Sending Comeback Mail");
+                    senders.Add(new ComebackMailSender("EOComebackToUs"));
+                }
+            }
+
             // loop through all senders.
             // No need to check size of List since WelcomeMail is always scheduled.
             foreach (var sender in senders)
