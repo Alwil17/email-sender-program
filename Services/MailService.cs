@@ -18,8 +18,8 @@ namespace EmailSenderProgram.Services
             {
                 //Don't send mails in debug mode, just write the emails in console
                 Console.WriteLine($"[DEBUG] Email to: {to}");
-                Console.WriteLine($"Subject: {subject}");
-                Console.WriteLine($"Body: {body}");
+                //Console.WriteLine($"Subject: {subject}");
+                //Console.WriteLine($"Body: {body}");
             }
             else
             {
