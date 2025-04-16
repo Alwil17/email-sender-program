@@ -1,10 +1,10 @@
 ## Ignore visual studi temporary files, build results, etc.
 
 # Build results
-#[Dd]ebug/
-#[Rr]elease/
+[Dd]ebug/
+[Rr]elease/
 #[Oo]bj/
-#[Bb]in/
+[Bb]in/
 
 # IDE's specific files
 .vs/

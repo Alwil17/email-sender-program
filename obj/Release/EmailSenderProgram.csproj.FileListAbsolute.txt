@@ -1,7 +1,0 @@
-D:\Projects\EmailSenderProgram\bin\Release\EmailSenderProgram.exe.config
-D:\Projects\EmailSenderProgram\bin\Release\EmailSenderProgram.exe
-D:\Projects\EmailSenderProgram\bin\Release\EmailSenderProgram.pdb
-D:\Projects\EmailSenderProgram\obj\Release\EmailSenderProgram.csproj.AssemblyReference.cache
-D:\Projects\EmailSenderProgram\obj\Release\EmailSenderProgram.csproj.CoreCompileInputs.cache
-D:\Projects\EmailSenderProgram\obj\Release\EmailSenderProgram.exe
-D:\Projects\EmailSenderProgram\obj\Release\EmailSenderProgram.pdb
