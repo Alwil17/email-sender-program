@@ -18,6 +18,8 @@ namespace EmailSenderProgram.Mail
         /// <summary>
 		/// Constructor of ComebackMailSender
 		/// </summary>
+        /// <param name="voucherCode"></param>
+		/// <returns></returns>
         public ComebackMailSender(string voucherCode)
         {
             _voucherCode = voucherCode;
@@ -78,4 +80,4 @@ namespace EmailSenderProgram.Mail
         }
     }
 }
-}
+

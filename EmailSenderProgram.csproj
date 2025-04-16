@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="Mail\ComebackMailSender.cs" />
     <Compile Include="Mail\IMailSender.cs" />
     <Compile Include="Mail\WelcomeMailSender.cs" />
     <Compile Include="Program.cs" />
