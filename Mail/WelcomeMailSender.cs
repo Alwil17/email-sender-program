@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using EmailSenderProgram.Services;
 
 namespace EmailSenderProgram.Mail
 {
@@ -30,30 +31,14 @@ namespace EmailSenderProgram.Mail
                     .Where(c => c.CreatedDateTime > DateTime.Now.AddDays(-1))
                     .ToList();
 
-                //loop through list of new customers
-                foreach (var customer in newCustomers)
-                {
-#if DEBUG
-                    //Don't send mails in debug mode, just write the emails in console
-                    Console.WriteLine($"[DEBUG] Would send welcome email to: {customer.Email}");
-#else
-                    // Created MailMessage with all mail components
-                    var mail = new MailMessage
-                    {
-                        From = new MailAddress("info@EO.com"),
-                        Subject = "Welcome as a new customer at EO!",
-                        Body = $"Hi {customer.Email} <br>We would like to welcome you as customer on our site!<br><br>Best Regards,<br>EO Team",
-                        IsBodyHtml = true
-                    };
+                // loop through list of new customers
+                // call MailService to sendEmail
+                newCustomers.ForEach(customer => MailService.SendEmail(
+                        customer.Email,
+                        "Welcome as a new customer at EO!",
+                        $"Hi {customer.Email} <br>We would like to welcome you as customer on our site!<br><br>Best Regards,<br>EO Team"
+                ));
 
-                    // Add customer as recipient
-                    mail.To.Add(customer.Email);
-                    // Create new smtp client
-                    var smtp = new SmtpClient("SMTP_HOST");
-                    // send mail
-                    smtp.Send(mail);
-#endif
-                }
                 //All mails are sent! Success!
                 return true;
             }
